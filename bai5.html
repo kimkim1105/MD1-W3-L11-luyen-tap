@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let num = 20;
+    let a = 1,b = 0,temp, sum = 0;
+    while (num>0){
+        temp = a;
+        a = a+b;
+        b = temp;
+        console.log('ktra b ',b)
+        sum = sum + b;
+        num--;
+    }
+    document.write(sum);
+</script>

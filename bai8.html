@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+Hãy thử đoán xem!!! <br>
+<button id="btn" onclick="doanSo()">Chơi</button>
+<p id="rs"></p>
+<p id="turn"></p>
+</body>
+</html>
+<script>
+    let r1 = +prompt("Nhập vào giá trị nhỏ nhất muốn đoán");
+    let r2 = +prompt("Nhập vào giá trị lớn nhất muốn đoán");
+    let cnt =3;
+    let ran = Math.floor(Math.random() * (r2 - r1 + 1)) + r1;
+    console.log("gtri ngẫu nhiên", ran)
+
+    function doanSo() {
+
+        let n = +prompt("Nhập vào giá trị muốn đoán");
+        console.log("n nhập vào===", n)
+
+            if (n === ran&&cnt>0) {
+                document.getElementById("rs").innerHTML = ("Bạn đã đoán đúng!");
+                document.getElementById("btn").innerHTML = "Chơi lại";
+                cnt = 3;
+                return;
+            } else{
+                cnt --;
+                if (n > ran) {
+                    document.getElementById("rs").innerHTML = ("Số bạn đoán lớn hơn");
+                    document.getElementById("turn").innerHTML = ("Số lượt chơi còn lại là: " + cnt)
+                    document.getElementById("btn").innerHTML = "Chơi tiếp";
+                } else {
+                    document.getElementById("rs").innerHTML = ("Số bạn đoán nhỏ hơn");
+                    document.getElementById("turn").innerHTML = ("Số lượt chơi còn lại là: " + cnt);
+                    document.getElementById("btn").innerHTML = "Chơi tiếp";
+                }
+            }
+            if(cnt<=0){
+            document.getElementById("turn").innerHTML = ("Bạn đã hết lượt chơi");
+                document.getElementById("btn").innerHTML = "Chơi lại";
+                cnt = 3;
+                return;
+            }
+    }
+</script>
